@@ -42,19 +42,15 @@ public class Program {
 		System.out.println("Check-out Date: ");
 		dtO = sdf.parse(sc.next());
 		
-		Date now = new Date();
-		if (dtI.before(now) || dtO.before(now)) {
-		System.out.println("Reservation dates for update must be future dates.");
-		}
-		else if (!dtO.after(dtI)) {
-			
-			System.out.println("Error in reservation: Check-out date must be after check-in date. ");
-		}
 		
+		String error = res.updateDates(dtI, dtO);
+		if (error != null) {
+			
+			System.out.println("Error in reservation: "+ error);	
+			
+		}
 		else {
 			
-			
-			res.updateDates(dtI, dtO);
 			System.out.println("Reservation: "+ res);
 		}
 		
@@ -62,7 +58,6 @@ public class Program {
 	
 	}
 	
-	// Add comments to compare branches att...
 	
 	}
 
